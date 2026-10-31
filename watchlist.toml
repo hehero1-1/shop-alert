@@ -1,0 +1,20 @@
+# 감시할 페이지 목록. [[watch]] 하나가 페이지 하나예요.
+#
+#   name     = 알림에 보일 이름
+#   url      = 페이지 주소
+#   keywords = ["나이키", "아식스"]   (선택) 제목에 이 단어가 있을 때만 알림
+#   type     = 확인 방법 (rss / cafe24 / eomisae / jsonld / links). 비워 두면 자동으로 채워져요.
+#   pattern  = (type 이 links 일 때만) 상품 링크 주소에 들어 있는 글자. 예: "/goods/"
+#
+# 텔레그램 봇 명령어(/add, /remove, /name, /kw)로 바꾸면 이 파일이 다시 쓰이면서
+# 여기 직접 적은 다른 주석은 지워져요.
+
+[[watch]]
+name = "어미새 인기정보"
+url = "https://eomisae.co.kr/fs/rss"
+type = "rss"
+
+[[watch]]
+name = "스컬프스토어 RRL"
+url = "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5"
+type = "cafe24"
