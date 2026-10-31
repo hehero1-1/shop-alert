@@ -10,11 +10,9 @@
 # 여기 직접 적은 다른 주석은 지워져요.
 
 [[watch]]
-name = "어미새 인기정보"
-url = "https://eomisae.co.kr/fs/rss"
-type = "rss"
+name = "어미새 패션정보"
+url = "https://eomisae.co.kr/os"
 
 [[watch]]
 name = "스컬프스토어 RRL"
-url = "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5"
-type = "cafe24"
+url = "https://sculpstore.com/product/brand.html?cate_no=804"
