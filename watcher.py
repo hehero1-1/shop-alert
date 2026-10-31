@@ -2,7 +2,7 @@
 
 watchlist.toml 에 적힌 페이지를 확인해서 처음 보는 상품이나 글이 있으면 텔레그램으로 알려준다.
 실행할 때마다 텔레그램에서 봇에게 보낸 명령어(/add, /list 등)도 함께 처리한다.
-GitHub Actions 가 10분마다 실행한다 (.github/workflows/watch.yml).
+GitHub Actions 가 정해 둔 간격마다 실행한다 (.github/workflows/watch.yml 의 cron).
 
 환경 변수
   TELEGRAM_BOT_TOKEN  BotFather 에게 받은 봇 토큰. 없으면 알림을 화면에 출력만 한다.
@@ -33,6 +33,7 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
 MAX_SEEN = 2000    # 페이지마다 기억해 둘 항목 수
 MAX_ALERTS = 10    # 한 페이지에서 한 번에 하나씩 보낼 알림 수 (넘으면 개수만 알림)
 FAIL_ALERT = 6     # 이만큼 연속으로 확인에 실패하면 알림 (10분 간격이면 약 1시간)
+RESOLVE_ALERT = 2  # 직접 추가한 페이지의 확인 방법을 이만큼 연속으로 못 정하면 알림
 
 # 진짜 글이 아닌 항목. 어미새의 등급 제한 글은 처음엔 제목이 "N분 뒤 전체 공개로 전환됩니다" 로
 # 보이고, 광고 자리는 "list_adsense" 같은 이름으로 보인다. 이런 항목은 없는 셈 치고,
@@ -58,7 +59,7 @@ HELP = """사용할 수 있는 명령어
 /kw 번호 [키워드…] - 키워드 바꾸기 (키워드 없이 쓰면 필터 해제)
 
 주소만 보내도 /add 로 처리해요.
-명령어는 다음 확인 때(최대 10분 뒤) 처리돼요."""
+명령어는 다음 확인 때 처리돼요."""
 
 WATCHLIST_HEADER = """\
 # 감시할 페이지 목록. [[watch]] 하나가 페이지 하나예요.
@@ -519,8 +520,8 @@ def run_command(text, watches, state):
 
 # ---------------------------------------------------------------- 확인과 알림
 
-def fill_missing(watches):
-    """watchlist.toml 에 직접 추가해서 type 이 비어 있는 항목의 확인 방법을 채운다."""
+def fill_missing(watches, state):
+    """watchlist.toml 이나 설정 페이지에서 추가해서 type 이 비어 있는 항목의 확인 방법을 채운다."""
     changed = False
     for watch in watches:
         if watch.get("type"):
@@ -529,6 +530,11 @@ def fill_missing(watches):
             resolved, _ = resolve(watch["url"])
         except Exception as e:
             print(f"[실패] {watch['url']}: 확인 방법을 정하지 못했어요 ({e})")
+            page = state["pages"].setdefault(watch["url"], {"fails": 0})
+            page["fails"] = page.get("fails", 0) + 1
+            if page["fails"] == RESOLVE_ALERT:
+                send(f"⚠️ 이 페이지는 자동으로 확인할 수 없었어요.\n({esc(str(e))})\n{esc(watch['url'])}\n"
+                     "주소가 맞는지 확인하거나 /remove 로 빼 주세요.")
             continue
         watch["type"], watch["url"] = resolved["type"], resolved["url"]
         watch.setdefault("name", resolved["name"])
@@ -613,7 +619,7 @@ def main():
             save_state(state)
             return
 
-    changed |= fill_missing(watches)
+    changed |= fill_missing(watches, state)
     for watch in watches:
         if watch.get("type"):
             check(watch, state)
