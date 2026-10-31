@@ -1,0 +1,109 @@
+{
+ "telegram_offset": 0,
+ "pages": {
+  "https://eomisae.co.kr/fs/rss": {
+   "fails": 0,
+   "seen": [
+    "https://eomisae.co.kr/fs/208636591",
+    "https://eomisae.co.kr/fs/208606153",
+    "https://eomisae.co.kr/fs/208599047",
+    "https://eomisae.co.kr/fs/208594838",
+    "https://eomisae.co.kr/fs/208576073",
+    "https://eomisae.co.kr/fs/208574422",
+    "https://eomisae.co.kr/fs/208558078",
+    "https://eomisae.co.kr/fs/208555551",
+    "https://eomisae.co.kr/fs/208549590",
+    "https://eomisae.co.kr/fs/208547195",
+    "https://eomisae.co.kr/fs/208533846",
+    "https://eomisae.co.kr/fs/208535913",
+    "https://eomisae.co.kr/fs/208521964",
+    "https://eomisae.co.kr/fs/208519470",
+    "https://eomisae.co.kr/fs/208518507",
+    "https://eomisae.co.kr/fs/208515496",
+    "https://eomisae.co.kr/fs/208505802",
+    "https://eomisae.co.kr/fs/208512280",
+    "https://eomisae.co.kr/fs/208506546",
+    "https://eomisae.co.kr/fs/208506218"
+   ]
+  },
+  "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5": {
+   "fails": 0,
+   "seen": [
+    "36478",
+    "36444",
+    "36443",
+    "36442",
+    "36392",
+    "36391",
+    "35986",
+    "35985",
+    "35984",
+    "35962",
+    "35961",
+    "35771",
+    "35770",
+    "35769",
+    "35768",
+    "35767",
+    "35765",
+    "35763",
+    "34565",
+    "34564",
+    "34563",
+    "34562",
+    "34540",
+    "34539",
+    "34537",
+    "34535",
+    "34533",
+    "34531",
+    "34530",
+    "34528",
+    "34495",
+    "34489",
+    "34486",
+    "34485",
+    "34484",
+    "34482",
+    "34451",
+    "34450",
+    "34448",
+    "34447",
+    "34446",
+    "34445",
+    "34443",
+    "32073",
+    "32067",
+    "32065",
+    "32064",
+    "32062"
+   ]
+  }
+ },
+ "commands": [
+  [
+   "list",
+   "감시 중인 페이지 보기"
+  ],
+  [
+   "add",
+   "페이지 추가: /add 주소 [키워드]"
+  ],
+  [
+   "remove",
+   "감시 그만하기: /remove 번호"
+  ],
+  [
+   "name",
+   "이름 바꾸기: /name 번호 이름"
+  ],
+  [
+   "kw",
+   "키워드 바꾸기: /kw 번호 [키워드]"
+  ],
+  [
+   "help",
+   "도움말"
+  ]
+ ]
+}
