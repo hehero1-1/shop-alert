@@ -12,7 +12,9 @@
 [[watch]]
 name = "어미새 패션정보"
 url = "https://eomisae.co.kr/os"
+type = "eomisae"
 
 [[watch]]
 name = "스컬프스토어 RRL"
-url = "https://sculpstore.com/product/brand.html?cate_no=804"
+url = "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5"
+type = "cafe24"
