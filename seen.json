@@ -2,7 +2,7 @@
  "telegram_offset": 796438361,
  "pages": {
   "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5": {
-   "fails": 0,
+   "fails": 1,
    "seen": [
     "31885",
     "34442",
