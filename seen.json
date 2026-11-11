@@ -61,6 +61,7 @@
   "https://eomisae.co.kr/os": {
    "fails": 0,
    "seen": [
+    "https://eomisae.co.kr/os/210452206",
     "https://eomisae.co.kr/os/210450624",
     "https://eomisae.co.kr/os/210449869",
     "https://eomisae.co.kr/os/210449212",
@@ -559,8 +560,7 @@
     "https://eomisae.co.kr/os/209606714",
     "https://eomisae.co.kr/os/209604445",
     "https://eomisae.co.kr/os/209604980",
-    "https://eomisae.co.kr/os/209604982",
-    "https://eomisae.co.kr/os/209603525"
+    "https://eomisae.co.kr/os/209604982"
    ]
   }
  },
