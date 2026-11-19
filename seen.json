@@ -2,7 +2,7 @@
  "telegram_offset": 796438361,
  "pages": {
   "https://sculpstore.com/product/brand.html?cate_no=804&sort_method=5": {
-   "fails": 2,
+   "fails": 0,
    "seen": [
     "31819",
     "31823",
@@ -63,6 +63,10 @@
   "https://eomisae.co.kr/os": {
    "fails": 0,
    "seen": [
+    "https://eomisae.co.kr/os/211751906",
+    "https://eomisae.co.kr/os/211748671",
+    "https://eomisae.co.kr/os/211748730",
+    "https://eomisae.co.kr/os/211746497",
     "https://eomisae.co.kr/os/211750201",
     "https://eomisae.co.kr/os/211733692",
     "https://eomisae.co.kr/os/211739789",
